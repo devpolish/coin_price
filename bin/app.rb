@@ -1,22 +1,22 @@
 require 'mechanize'
 require 'colorize'
-coins = %w{ bitcoin dash ethereum }
+coins = %w{ bitcoin dash ethereum ethereumclassic litecoin bitcoincash monero}
 url = 'https://www.worldcoinindex.com/coin'
 mechanize = Mechanize.new
 btc_prices = []
 eth_prices = []
 dash_prices = []
 total = [btc_prices, eth_prices, dash_prices] 
-Signal.trap("INT") do
-  puts "Bye"
-  unless total.all?(&:empty?)
-    puts "Creating reports at reports folder ...".red
-    file = File.new('reports/report.txt')
-    sleep 3
-    puts "Bye"
-    exit
-  end
-end
+# Signal.trap("INT") do
+#   puts "Bye"
+#   unless total.all?(&:empty?)
+#     puts "Creating reports at reports folder ...".red
+#     file = File.new('reports/report.txt')
+#     sleep 3
+#     puts "Bye"
+#     exit
+#   end
+# end
 
 loop do
   coins.each do |coin|
